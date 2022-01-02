@@ -4,16 +4,16 @@ import { BehaviorSubject } from 'rxjs';
 import { Product } from '../models/product.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StoreService {
-
   private myShoppingCart: Product[] = [];
   private myCart = new BehaviorSubject<Product[]>([]);
-
+  public isUserLoggin = new BehaviorSubject<boolean>(false);
+  isUserLoggin$ = this.isUserLoggin.asObservable();
   myCart$ = this.myCart.asObservable();
 
-  constructor() { }
+  constructor() {}
 
   addProduct(product: Product) {
     this.myShoppingCart.push(product);

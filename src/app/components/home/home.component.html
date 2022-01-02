@@ -1,0 +1,33 @@
+<div>
+  <h1>Hola, bienvenido a mi proyecto. Yard Store</h1>
+
+  <p>
+    Consumiendo la API https://young-sands-07814.herokuapp.com, he creado un
+    CRUD, en el cual podemos crear productos, editar, actualizar y borrarlos.
+  </p>
+
+  <p>
+    También he implemendo las rutas de angular para poder seccionar los
+    productos mediante una navegación o secciones, las cuales puedes ver en la
+    barra de navegacion o en estos botones, para acceder a ellos debes estar
+    logeado y registrado.
+  </p>
+  <div class="buttons">
+    <button (click)="goToAll()">All</button>
+    <button (click)="goToClothes()">Clothes</button>
+    <button (click)="goToElectronics()">Electronics</button>
+    <button (click)="goToDownload()">Download</button>
+  </div>
+  <p>
+    Adicional a esto, la api trae la opcion para registrar usuarios y logearnos,
+    así que lo he implementado usando formularios reactivos, también he valida
+    mediante los Guards de angular, que los productos se muestren solo si estas
+    logeado, estas validaciones las hago mediante el LocalStorage, que es el
+    lugar donde he guardado el token de autenticación que me devuelve la API,
+    todas estas validaciones y operaciones las he creado usando servicios y
+    también he creado un interceptor para validar el token.
+  </p>
+  <button (click)="goToLogin()">
+    Ve a Logearte o Registrate para Iniciar Sesion
+  </button>
+</div>

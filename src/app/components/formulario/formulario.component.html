@@ -1,0 +1,76 @@
+<form
+  *ngIf="showCreate"
+  class="formProduct"
+  [formGroup]="newProduct"
+  (ngSubmit)="sendProduct()"
+>
+  <h1>Llena el siguiente formulario para registrar un producto</h1>
+  <input
+    placeholder="Titulo de tu producto"
+    class=""
+    type="text"
+    formControlName="title"
+  />
+  <input
+    placeholder="Descripcion de tu producto"
+    class=""
+    type="text"
+    formControlName="description"
+  />
+  <!-- <div>
+    <label for="imagen">Ingresa una imagen (Opcional)</label>
+    <input
+      id="imagen"
+      class=""
+      (change)="onUpload($event)"
+      type="file"
+      formControlName="images"
+    />
+  </div> -->
+  <input placeholder="Precio" class="" type="number" formControlName="price" />
+
+  <select formControlName="categoryId">
+    <option [ngValue]="null">Selecciona una categoria</option>
+    <option *ngFor="let option of options" [ngValue]="option.id">
+      {{ option.label }}
+    </option>
+  </select>
+
+  <div class="divButton">
+    <button [disabled]="newProduct.invalid" type="submit">
+      Registrar un nuevo Producto
+    </button>
+  </div>
+</form>
+
+<form
+  *ngIf="showUpdate"
+  class="formProduct"
+  [formGroup]="updateProduct"
+  (ngSubmit)="onUpdateProduct()"
+>
+  <h1>Llena el siguiente formulario para Editar un producto</h1>
+  <input
+    placeholder="Titulo de tu producto"
+    class=""
+    type="text"
+    formControlName="title"
+  />
+  <input
+    placeholder="Descripcion de tu producto"
+    class=""
+    type="text"
+    formControlName="description"
+  />
+  <!-- <div>
+    <label for="imagen">Ingresa una imagen (Opcional)</label>
+    <input id="imagen" class="" type="file" formControlName="images" />
+  </div> -->
+  <input placeholder="Precio" class="" type="number" formControlName="price" />
+
+  <div class="divButton">
+    <button [disabled]="updateProduct.invalid" type="submit">
+      Edita tu Producto
+    </button>
+  </div>
+</form>

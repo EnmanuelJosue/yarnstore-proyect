@@ -1,3 +1,10 @@
-p, h2 {
-  margin: 0;
+.div-product {
+  margin: 1rem auto;
+  p,
+  h2 {
+    margin: 0;
+  }
+  button {
+    margin: 0.3rem;
+  }
 }

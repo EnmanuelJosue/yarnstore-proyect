@@ -1,45 +1,57 @@
 <div class="show-mobile">
   <div>
     <button (click)="toggleMenu()">
-      <img src="./assets/svg/icon_menu.svg" alt="menu">
+      <img src="./assets/svg/icon_menu.svg" alt="menu" />
     </button>
-    <a href="">
-      <img src="./assets/svg/logo_yard_sale.svg" alt="logo">
+    <a (click)="goToHome()">
+      <img src="./assets/svg/logo_yard_sale.svg" alt="logo" />
     </a>
     <div class="cart">
-      <a href="">
-        <img src="./assets/svg/icon_shopping_cart.svg" alt="logo">
+      <a (click)="goToHome()">
+        <img src="./assets/svg/icon_shopping_cart.svg" alt="logo" />
       </a>
       <span class="counter">{{ counter }}</span>
     </div>
-
   </div>
   <div class="side-menu" [class.active]="activeMenu">
     <button (click)="toggleMenu()">Close</button>
     <ul>
-      <li><a href="">All</a></li>
-      <li><a href="">Clothes</a></li>
-      <li><a href="">Electronics</a></li>
+      <li><a (click)="goToAll()">All</a></li>
+      <li><a (click)="goToClothes()">Clothes</a></li>
+      <li><a (click)="goToElectronics()">Electronics</a></li>
+      <li><a (click)="goToDownload()">Download</a></li>
     </ul>
+    <div class="account">
+      <button *ngIf="!profile; else elseBlock" (click)="login()">Login</button>
+      <button *ngIf="profile" (click)="logOut()">Logout</button>
+      <ng-template #elseBlock> {{ profile?.email }} </ng-template>
+    </div>
   </div>
 </div>
 <div class="hide-mobile">
   <div>
     <nav>
-      <a class="logo" href="">
-        <img src="./assets/svg/logo_yard_sale.svg" alt="logo">
+      <a class="logo" (click)="goToHome()">
+        <img src="./assets/svg/logo_yard_sale.svg" alt="logo" />
       </a>
       <ul>
-        <li><a href="">All</a></li>
-        <li><a href="">Clothes</a></li>
-        <li><a href="">Electronics</a></li>
+        <li><a (click)="goToAll()">All</a></li>
+        <li><a (click)="goToClothes()">Clothes</a></li>
+        <li><a (click)="goToElectronics()">Electronics</a></li>
+        <li><a (click)="goToDownload()">Download</a></li>
       </ul>
     </nav>
     <div class="info">
-      <div class="account">nicolas@nicolas.com</div>
+      <div class="account">
+        <button *ngIf="!profile; else elseBlock" (click)="login()">
+          Login
+        </button>
+        <button *ngIf="profile" (click)="logOut()">Logout</button>
+        <ng-template #elseBlock> {{ profile?.email }} </ng-template>
+      </div>
       <div class="cart">
-        <a href="">
-          <img src="./assets/svg/icon_shopping_cart.svg" alt="logo">
+        <a (click)="goToHome()">
+          <img src="./assets/svg/icon_shopping_cart.svg" alt="logo" />
         </a>
         <span class="counter">{{ counter }}</span>
       </div>

@@ -1,0 +1,59 @@
+<form class="formProduct" [formGroup]="newLogin" (ngSubmit)="loginUser()">
+  <h1>Llena los siguientes datos para iniciar sesion</h1>
+  <input
+    placeholder="Ingresa tu correo"
+    class=""
+    type="text"
+    formControlName="email"
+  />
+
+  <input
+    placeholder="Ingresa tu contraseña"
+    class=""
+    type="password"
+    formControlName="password"
+  />
+
+  <div class="divButton">
+    <button [disabled]="newLogin.invalid" type="submit">Inicia Sesion</button>
+  </div>
+</form>
+
+<form
+  *ngIf="showForm"
+  class="formProduct"
+  [formGroup]="newProduct"
+  (ngSubmit)="sendProduct()"
+>
+  <h1>Llena el siguiente formulario para Registrarte</h1>
+  <input
+    placeholder="Ingresa tu correo"
+    class=""
+    type="text"
+    formControlName="email"
+  />
+  <input
+    placeholder="Ingresa tu nombre"
+    class=""
+    type="text"
+    formControlName="name"
+  />
+  <!-- <div>
+    <label for="imagen">Ingresa una imagen (Opcional)</label>
+    <input id="imagen" class="" type="file" formControlName="images" />
+  </div> -->
+  <input
+    placeholder="Ingresa tu contraseña"
+    class=""
+    type="password"
+    formControlName="password"
+  />
+
+  <div class="divButton">
+    <button [disabled]="newProduct.invalid" type="submit">Registrate</button>
+  </div>
+</form>
+
+<div>
+  <button *ngIf="!showForm" (click)="registrar()">Registrate Aquí</button>
+</div>
